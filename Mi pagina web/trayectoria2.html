@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Messi - Trayectoria</title>
+    <link rel="icon" href="messi.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(to right, #a50044, #004d98);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #004d98;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #a50044;
+        }
+        
+        h3 {
+            color: #a50044;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background-color: #f0f8ff;
+            border-left: 4px solid #004d98;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .video-wrapper, .audio-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        video, audio {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #004d98;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background: #a50044;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background: #004d98;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #004d98;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #a50044;
+            border: 4px solid #004d98;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after, 
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="caratula.htm"><img src="boton home.jpg" alt="Regresar."  title="Regresar a la página principal." style="float:right"></a>
+    <header>
+        <div class="header-content">
+            <h1>Lionel Messi</h1>
+            <p class="subtitle">Una trayectoria legendaria desde sus inicios en el FC Barcelona hasta convertirse en uno de los mejores futbolistas de todos los tiempos</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section">
+            <h2>Primeros Años en el FC Barcelona</h2>
+            <p>Lionel Messi comenzó la pretemporada 2004-2005 jugando amistosos con el primer equipo del FC Barcelona: ante el Banyoles, el Figueres, el Palamós, el Hércules y el Olympique de Marsella, donde fue titular por primera vez.</p>
+            
+            <p>Contra el Palamós el 20 de julio en el Camp Nou, en el minuto '74, anotó su primer gol, que puso el 0-4 parcial de un partido que el Barcelona ganó 0-6. Participó también en el <em>On Tour Asia</em>, una gira promocional del club por Corea, China y Japón en la que se jugaron cuatro amistosos. Convirtió un gol el 1 de agosto en el 5-0 ante el Kashima Antiers.</p>
+            
+            <div class="highlight">
+                "Nunca olvidaré que Rijkaard me puso en marcha. Que confió en mí con tan solo diecisiete años de edad."
+            </div>
+            
+            <p>Aunque sabía que podía funcionar como atacante en cualquier posición, Rijkaard lo hizo jugar como extremo derecho. Messi jugó su primer partido oficial el 16 de octubre, el derby barcelonés contra el Espanyol en el estadio Olímpico Luís Companys, cuando sustituyó a Deco ocho minutos antes de terminar el encuentro. Con diecisiete años, tres meses y veintidós días, se convirtió en uno de los canteranos más jóvenes en debutar en La Liga.</p>
+            
+            <p>El 27 de octubre, ante el Gramenet, jugó por primera vez en la Copa del Rey y el 7 de diciembre en la Liga de Campeones 2004-2005 frente al FC Shakhtar Donetsk en el Donbass Arena. Hacia fines de ese año, el diario <em>El País</em> lo señalaba como "la gran promesa".</p>
+            
+            <p>En un partido de La Liga contra el Albacete Balompié el 1 de mayo de 2005, tras asistencia de Ronaldinho, Messi anotó, de vaselina, su primer gol oficial, después de que le anularan otro parecido por estar en <em>offside</em>. Con diecisiete años, 10 meses y 7 días, se convirtió en el jugador más joven del Barcelona en hacer un gol en ese torneo, marca que superó Bojan Krkić en 2007.</p>
+            
+            <p>Luego de cinco temporadas sin conseguir el título, el 14 de mayo el Barcelona empató 1-1 contra el Levante y fue campeón de La Liga tres jornadas antes de la finalización del torneo.</p>
+            
+            <p>En junio, Messi firmó su primer contrato como jugador del primer equipo, que lo vinculaba con el club hasta 2010 y tenía una cláusula de rescisión de 150 millones de euros.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Momentos Destacados</h2>
+            <div class="media-container">
+                <div class="video-wrapper">
+                    <h3>Messi en el 2005.</h3>
+                    <video controls poster="https://img.uefa.com/imgml/TP/players/1/2024/324x324/95871.jpg">
+                        <source src="messi 2005.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                
+                <div class="video-wrapper">
+                    <h3>Messi y Ronaldinho.</h3>
+                    <video controls poster="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2021/08/08/16284337002195.jpg">
+                        <source src="messi y ronaldiho.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+            </div>
+            
+            <div class="audio-wrapper">
+                <h3>Narración histórica del gol de Messi.</h3>
+                <audio controls>
+                    <source src="encara messi.mpeg" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Trayectoria Cronológica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2003-2005</h3>
+                        <p>Debut con el primer equipo del FC Barcelona. Primer gol oficial contra el Albacete.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2005</h3>
+                        <p>Primer contrato profesional con el Barcelona. Campeón de La Liga.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2006</h3>
+                        <p>Primera Liga de Campeones con el Barcelona.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2009</h3>
+                        <p>Primer Balón de Oro. Primer triplete histórico (Liga, Copa, Champions).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2012</h3>
+                        <p>Récord de 91 goles en un año natural.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Deja el FC Barcelona después de 21 años. Firma con el PSG.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Campeón del Mundo con Argentina en Qatar.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Octavo Balón de Oro. Se une al Inter Miami.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <div class="back-to-top" id="backToTop">↑</div>
+    
+    <footer>
+        <p>Página dedicada a la trayectoria de Lionel Messi</p>
+        <p>© 2025 - Eddie Pizango Cartagena.</p>
+    </footer>
+    
+    <script>
+        // Botón para volver al inicio
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mostrar/ocultar el botón según la posición de scroll
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

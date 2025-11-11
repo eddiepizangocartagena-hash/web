@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trayectoria de Lionel Messi en el FC Barcelona</title>
+    <link rel="icon" href="messi.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #a50044 0%, #004d98 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #a50044 0%, #004d98 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .text-content {
+            flex: 2;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .media-content {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .media-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .video-container, .audio-container {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-placeholder, .audio-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #a50044 0%, #004d98 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .audio-placeholder {
+            height: 120px;
+        }
+        
+        .video-placeholder i, .audio-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        h2 {
+            color: #004d98;
+            margin: 25px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        h2:first-child {
+            margin-top: 0;
+        }
+        
+        h3 {
+            color: #a50044;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .quote {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #a50044;
+            font-style: italic;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .timeline-year {
+            background-color: #004d98;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 20px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid #a50044;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #a50044;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .highlights {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #004d98;
+        }
+        
+        .milestones {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .milestone {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .milestone:hover {
+            transform: translateY(-5px);
+        }
+        
+        .milestone i {
+            font-size: 2.5rem;
+            color: #004d98;
+            margin-bottom: 15px;
+        }
+        
+        .milestone-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="top">
+        <div class="container">
+            <h1>Trayectoria de Messi en el FC Barcelona</h1>
+            <p class="subtitle">Los primeros años de una leyenda en el club culé</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="text-content">
+                <h2>Primeros Años en el Barcelona</h2>
+                <p>Comenzó la pretemporada 2004-2005 jugando amistosos con el primer equipo: ante el Banyoles, el Figueres, el Palamós, el Hércules y el Olympique de Marsella, donde fue titular por primera vez.</p>
+                
+                <div class="quote">
+                    "Contra el Palamós el 20 de julio en el Camp Nou, en el minuto 74, anotó su primer gol, que puso el 0-4 parcial de un partido que el Barcelona ganó 0-6."
+                </div>
+                
+                <p>Participó también en el <em>On Tour Asia</em>, una gira promocional del club por Corea, China y Japón en la que se jugaron cuatro amistosos. Convirtió un gol el 1 de agosto en el 5-0 ante el Kashima Antlers.</p>
+                
+                <h3>Debut Oficial</h3>
+                <p>Aunque sabía que podía funcionar como atacante en cualquier posición, Rijkaard lo hizo jugar como extremo derecho.</p>
+                
+                <p>Messi jugó su primer partido oficial el 16 de octubre, el derbi barcelonés contra el Espanyol en el estadio Olímpico Lluís Companys, cuando sustituyó a Deco ocho minutos antes de terminar el encuentro. Con diecisiete años, tres meses y veintidós días, se convirtió en uno de los canteranos más jóvenes en debutar en La Liga.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <p><strong>Julio 20:</strong> Anota su primer gol en un amistoso contra el Palamós.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <p><strong>Octubre 16:</strong> Debut oficial con el primer equipo contra el Espanyol.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <p><strong>Octubre 27:</strong> Primera aparición en la Copa del Rey ante el Gramenet.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <p><strong>Diciembre 7:</strong> Debut en la Liga de Campeones frente al Shakhtar Donetsk.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2005</div>
+                        <div class="timeline-content">
+                            <p><strong>Mayo 1:</strong> Anota su primer gol oficial en La Liga contra el Albacete.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Primer Gol Oficial</h2>
+                <p>En un partido de La Liga contra el Albacete Balompié el 1 de mayo de 2005, tras asistencia de Ronaldinho, Messi anotó, de vaselina, su primer gol oficial, después de que le anularan otro parecido por estar en <em>offside</em>.</p>
+                
+                <p>Con diecisiete años, 10 meses y 7 días, se convirtió en el jugador más joven del Barcelona en hacer un gol en ese torneo, marca que superó Bojan Krkić en 2007.</p>
+                
+                <div class="quote">
+                    "Nunca olvidaré que Rijkaard me puso en marcha. Que confió en mí con tan solo diecisiete años de edad." - Messi sobre su ex-entrenador
+                </div>
+                
+                <h2>Primer Título de Liga</h2>
+                <p>Luego de cinco temporadas sin conseguir el título, el 14 de mayo el Barcelona empató 1-1 contra el Levante y fue campeón de La Liga tres jornadas antes de la finalización del torneo.</p>
+                
+                <div class="highlights">
+                    <h3>Logros Destacados en sus Primeros Años</h3>
+                    <div class="milestones">
+                        <div class="milestone">
+                            <i class="fas fa-futbol"></i>
+                            <div class="milestone-title">Primer Gol Oficial</div>
+                            <div class="milestone-date">1 de mayo de 2005</div>
+                        </div>
+                        <div class="milestone">
+                            <i class="fas fa-trophy"></i>
+                            <div class="milestone-title">Primera Liga</div>
+                            <div class="milestone-date">Temporada 2004-05</div>
+                        </div>
+                        <div class="milestone">
+                            <i class="fas fa-star"></i>
+                            <div class="milestone-title">Debut en Champions</div>
+                            <div class="milestone-date">7 de diciembre de 2004</div>
+                        </div>
+                        <div class="milestone">
+                            <i class="fas fa-history"></i>
+                            <div class="milestone-title">Jugador Más Joven</div>
+                            <div class="milestone-date">En anotar en Liga</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-content">
+                <div class="media-card">
+                    <h3>Videos Históricos</h3>
+                <div class="video-container">
+            <video controls width="100%" poster="ruta/miniatura-gol.jpg">
+                <source src="\messi 2005.mp4" type="video/mp4">
+            </video>
+            <p class="video-title">Primer gol oficial de Messi vs Albacete (2005)</p>
+        </div>
+
+        <div class="video-container" style="margin-top: 15px;">
+            <video controls width="100%" poster="ruta/miniatura-debut.jpg">
+                <source src="videos/messi-debut.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento video.
+            </video>
+            <p class="video-title">Debut de Messi con el FC Barcelona</p>
+        </div>
+
+        <div class="video-container" style="margin-top: 15px;">
+            <video controls width="100%" poster="ruta/miniatura-ronaldinho.jpg">
+                <source src="videos/messi-ronaldinho-asistencia.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento video.
+            </video>
+            <p class="video-title">Messi y Ronaldinho - Asistencia histórica</p>
+        </div>
+    </div>
+</div>  
+                
+                <div class="media-card">
+                    <h3>Audios Históricos</h3>
+                    <div class="audio-container">
+                        <div class="audio-placeholder">
+                            <i class="fas fa-volume-up"></i>
+                            <p>Primera entrevista de Messi (2005)</p>
+                        </div>
+                    </div>
+                    <div class="audio-container" style="margin-top: 15px;">
+                        <div class="audio-placeholder">
+                            <i class="fas fa-volume-up"></i>
+                            <p>Comentario del primer gol de Messi</p>
+                        </div>
+                    </div>
+                    <div class="audio-container" style="margin-top: 15px;">
+                        <div class="audio-placeholder">
+                            <i class="fas fa-volume-up"></i>
+                            <p>Rijkaard habla sobre el debut de Messi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="media-card">
+                    <h3>Estadísticas Iniciales</h3>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number">17</div>
+                            <div class="stat-label">Años al debutar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Minuto 74 primer gol</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label">Partidos 2004-05</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Gol en su primera temporada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="media-card">
+                    <h3>Messi en 2005</h3>
+                    <div style="width: 100%; height: 200px; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/m/mes/lionel-messi-2005.png'); background-size: cover; background-position: center; border-radius: 8px; display: flex; align-items: flex-end; padding: 15px; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
+                        <div>
+                            <p><strong>Messi ante el Málaga en 2005</strong></p>
+                            <p>Con 18 años, mostrando su talento excepcional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="#top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <footer>
+        <div class="container">
+            <p>Página web dedicada a la trayectoria de Lionel Messi en el FC Barcelona</p>
+            <p>© 2023 - Eddie Pizango Cartagena</p>
+        </div>
+    </footer>
+</body>
+</html>

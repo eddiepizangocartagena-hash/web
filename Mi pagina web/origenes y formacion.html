@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orígenes y Formación de Lionel Messi</title>
+    <link rel="icon" href="messi.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .image-content {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .messi-house {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .messi-house:hover {
+            transform: scale(1.02);
+        }
+        
+        h2 {
+            color: #b21f1f;
+            margin: 25px 0 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+        
+        h2:first-child {
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .quote {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #fdbb2d;
+            font-style: italic;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .timeline-year {
+            background-color: #1a2a6c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 100px;
+            text-align: center;
+            margin-right: 20px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid #b21f1f;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #b21f1f;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .clubs {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+        
+        .club-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .club-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+        
+        .club-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .club-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1a2a6c;
+        }
+        
+        .club-years {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="caratula.htm"><img src="boton home.jpg" alt="Regresar."  title="Regresar a la página principal." style="float:right"></a>
+    <header>
+        <div class="container">
+            <h1>Orígenes y Formación de Lionel Messi</h1>
+            <p class="subtitle">La historia de cómo un niño rosarino se convirtió en una leyenda del fútbol mundial</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <div class="text-content">
+                <h2>Primeros Años</h2>
+                <p>Lionel Andrés Messi nació el 24 de junio de 1987 en el Hospital Italiano Garibaldi de la ciudad de Rosario, en la provincia de Santa Fe. Es el tercer hijo de Jorge Horacio Messi y Celia María Cuccittini. Tiene dos hermanos mayores, Rodrigo y Matías, y una hermana menor, María Sol.</p>
+                
+                <p>Su familia paterna es originaria del municipio italiano de Recanati, de donde su bisabuelo, Angelo Messi, emigró a Argentina en 1883. Fue su abuela materna, Celia, la que lo alentó a dedicarse al fútbol, por lo que él le agradece señalando al cielo con las dos manos tras convertir un gol.</p>
+                
+                <h2>Inicios en el Fútbol</h2>
+                <p>Con apenas cuatro años, comenzó a practicar fútbol con Salvador Aparicio en el club Abanderado Grandoli, ubicado en el barrio Grandoli, a pocas cuadras de su casa. En 1994, empezó a entrenarse en las divisiones inferiores de Newell's Old Boys.</p>
+                
+                <div class="quote">
+                    "Dos de sus primos (Maximiliano y Emanuel Biancucchi) son también futbolistas. Estudió en la escuela primaria N° 66 'Gral. Las Heras'."
+                </div>
+                
+                <h2>El Diagnóstico que Cambió Todo</h2>
+                <p>A la edad de ocho años, le diagnosticaron una deficiencia de la hormona de crecimiento, por lo que debió hacer un tratamiento de 900 dólares mensuales que, durante un año y medio, cubrieron su obra social y Acindar, siderúrgica en la que trabajaba su padre.</p>
+                
+                <h2>Cronología de su Formación</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991</div>
+                        <div class="timeline-content">
+                            <p>Con apenas cuatro años, comienza a practicar fútbol en el club Abanderado Grandoli.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1994</div>
+                        <div class="timeline-content">
+                            <p>Ingresa a las divisiones inferiores de Newell's Old Boys.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1995</div>
+                        <div class="timeline-content">
+                            <p>Juega un torneo no oficial con Central Córdoba.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-content">
+                            <p>El equipo italiano Como muestra interés en ficharlo, pero finalmente no lo hace por las dificultades de la mudanza familiar.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2000</div>
+                        <div class="timeline-content">
+                            <p>Da su primera entrevista a un medio de comunicación. A los trece años, se prueba en River Plate pero no es aceptado.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote">
+                    "En River me dijeron que llevara el pase, y cuando fui a Newell's me sacaron cagando. Peleamos y peleamos pero el pase nunca me lo dieron. Nunca me dieron el pase. Después salió todo lo del Barcelona."
+                </div>
+            </div>
+            
+            <div class="image-content">
+                <img src="casa de messi.jpg" alt="Casa de la infancia de Messi en Rosario" class="messi-house">
+                <div class="image-caption" style="margin-top: 15px; font-style: italic; color: #666; text-align: center;">
+                    Casa de la infancia de Messi en Rosario
+                </div>
+                
+                <div style="margin-top: 30px; width: 100%;">
+                    <h2>Estadísticas con la Selección Argentina</h2>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number">195</div>
+                            <div class="stat-label">Partidos Jugados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">114</div>
+                            <div class="stat-label">Goles Marcados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Copa del Mundo</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Copa América</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; width: 100%;">
+                    <h2>Reconocimientos Tempranos</h2>
+                    <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);">
+                        <p>En 2000, con solo 13 años, Messi dio su primera entrevista a un medio de comunicación en el suplemento "Pasión Rojinegra" del diario La Capital de Rosario.</p>
+                        <p style="margin-top: 10px;">A pesar de las dificultades con su tratamiento médico y el rechazo de River Plate, su talento ya era evidente para quienes lo veían jugar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="clubs">
+            <h2>Trayectoria Profesional</h2>
+            <div class="club-list">
+                <div class="club-item">
+                    <div class="club-name">F. C. Barcelona</div>
+                    <div class="club-years">2004-2021</div>
+                </div>
+                <div class="club-item">
+                    <div class="club-name">Paris Saint-Germain</div>
+                    <div class="club-years">2021-2023</div>
+                </div>
+                <div class="club-item">
+                    <div class="club-name">Inter Miami</div>
+                    <div class="club-years">2023-presente</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Página web dedicada a los orígenes y formación de Lionel Messi</p>
+            <p>© 2023 - Eddie Pizango Cartagena.</p>
+        </div>
+    </footer>
+</body>
+</html>
